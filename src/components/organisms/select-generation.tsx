@@ -10,6 +10,18 @@ import {
 } from "@/components/ui/select";
 
 export const SelectGeneration = () => {
+  const generations = [
+    { value: "1", name: "赤・緑" },
+    { value: "2", name: "~ 金・銀" },
+    { value: "3", name: "~ ルビー・サファイア" },
+    { value: "4", name: "~ ダイヤモンド・パール" },
+    { value: "5", name: "~ ブラック・ホワイト" },
+    { value: "6", name: "~ X・Y" },
+    { value: "7", name: "~ サン・ムーン" },
+    { value: "8", name: "~ ソード・シールド" },
+    { value: "9", name: "~ スカーレット・バイオレット" },
+  ];
+
   return (
     <Select>
       <SelectTrigger className="w-[180px]">
@@ -18,15 +30,11 @@ export const SelectGeneration = () => {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>出題範囲</SelectLabel>
-          <SelectItem value="1">赤・緑</SelectItem>
-          <SelectItem value="2">金・銀</SelectItem>
-          <SelectItem value="3">ルビー・サファイア</SelectItem>
-          <SelectItem value="4">ダイヤモンド・パール</SelectItem>
-          <SelectItem value="5">ブラック・ホワイト</SelectItem>
-          <SelectItem value="6">X・Y</SelectItem>
-          <SelectItem value="7">サン・ムーン</SelectItem>
-          <SelectItem value="8">ソード・シールド</SelectItem>
-          <SelectItem value="9">スカーレット・バイオレット</SelectItem>
+          {generations.map((gen) => (
+            <SelectItem key={gen.value} value={gen.value}>
+              {gen.name}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>

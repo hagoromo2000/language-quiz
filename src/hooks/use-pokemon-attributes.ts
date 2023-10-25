@@ -32,13 +32,13 @@ const pokemonTypeJapaneseMapping = {
 
 type PokemonTypeEnglish = keyof typeof pokemonTypeJapaneseMapping;
 
-function convertTypesToJapanese(
+const convertTypesToJapanese = (
   typesInEnglish: PokemonTypeEnglish[]
-): string[] {
+): string[] => {
   return typesInEnglish.map(
     (type) => pokemonTypeJapaneseMapping[type] || "未知のタイプ"
   );
-}
+};
 
 export const usePokemonAttributes = (id: string) => {
   const { data, error } = useSWR(
