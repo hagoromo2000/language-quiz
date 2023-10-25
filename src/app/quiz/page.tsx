@@ -5,6 +5,7 @@ import { Quiz } from "@/components/organisms/quiz";
 import { SilhouetteHint } from "@/components/organisms/silhouette-hint";
 import { SubmitForm } from "@/components/organisms/submit-form";
 import { TypeHint } from "@/components/organisms/type-hint";
+import { XIntentPost } from "@/components/organisms/x-share-button";
 import { Button } from "@/components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
 import {
@@ -47,9 +48,17 @@ const Page = () => {
           <SilhouetteHint imageUrl={imageUrl} />
         </>
       )}
-      <SubmitForm japanese={japanese} setIsCorrect={setIsCorrect} />
+      <SubmitForm
+        japanese={japanese}
+        setIsCorrect={setIsCorrect}
+        isCorrect={isCorrect}
+      />
       <div className="mt-2">
-        {isCorrect ? null : <OpenCorrectAnswer setIsCorrect={setIsCorrect} />}
+        {isCorrect ? (
+          <XIntentPost />
+        ) : (
+          <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
+        )}
         <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
           <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
         </Button>

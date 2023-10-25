@@ -17,11 +17,7 @@ export const SelectGeneration = () => {
   const [, setGeneration] = useAtom(generationAtom);
 
   return (
-    <Select
-      onValueChange={(value) => {
-        setGeneration(parseInt(value));
-      }}
-    >
+    <Select onValueChange={(value) => setGeneration(parseInt(value))}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="出題範囲" />
       </SelectTrigger>

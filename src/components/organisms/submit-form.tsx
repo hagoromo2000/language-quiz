@@ -31,6 +31,7 @@ const formSchema = z.object({
 type PropsType = {
   japanese?: string;
   setIsCorrect: (isCorrect: boolean) => void;
+  isCorrect: boolean;
 };
 
 export const SubmitForm = (props: PropsType) => {
@@ -38,12 +39,10 @@ export const SubmitForm = (props: PropsType) => {
     resolver: zodResolver(formSchema),
   });
   const { reward } = useReward("rewardId", "confetti");
-  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const onSubmit = (data: any) => {
     if (props.japanese && data.pokemon === props.japanese) {
       props.setIsCorrect(true);
-      setIsDisabled(true);
       reward();
     } else {
       form.setError("pokemon", {
@@ -66,7 +65,7 @@ export const SubmitForm = (props: PropsType) => {
                 <Input
                   placeholder="ピカチュウ"
                   {...field}
-                  disabled={isDisabled}
+                  disabled={props.isCorrect}
                 />
               </FormControl>
               <FormMessage />
@@ -74,7 +73,7 @@ export const SubmitForm = (props: PropsType) => {
           )}
         />
         <div className="mt-2">
-          <Button type="submit" disabled={isDisabled}>
+          <Button type="submit" disabled={props.isCorrect}>
             キミに決めた！
             <span id="rewardId" />
           </Button>
