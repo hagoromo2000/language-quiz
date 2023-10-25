@@ -1,4 +1,5 @@
 "use client";
+import { SubmitForm } from "@/components/organisms/submit-form";
 import { Button } from "@/components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
 import { usePokemonSpecies } from "@/hooks/use-pokemon-speacies";
@@ -19,6 +20,7 @@ const Page = () => {
       >
         データフェッチ
       </Button>
+      <SubmitForm japanese={japanese} />
     </div>
   );
 };
