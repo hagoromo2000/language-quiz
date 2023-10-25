@@ -6,13 +6,26 @@ import { SubmitForm } from "@/components/organisms/submit-form";
 import { TypeHint } from "@/components/organisms/type-hint";
 import { Button } from "@/components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
+import { encrypt, decrypt } from "@/hooks/use-pokemon-crypted-id";
 import { usePokemonSpecies } from "@/hooks/use-pokemon-speacies";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 const Page = () => {
-  const { error, isLoading, chinese, japanese } = usePokemonSpecies("25");
-  const { imageUrl, types } = usePokemonAttributes("25");
+  const searchParams = useSearchParams();
+  const encryptedId = searchParams.get("id");
+  const id = encryptedId ? decrypt(encryptedId) : "25";
+
+  const { error, isLoading, chinese, japanese } = usePokemonSpecies(id);
+  const { imageUrl, types } = usePokemonAttributes(id);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
+
+  const generateRandomNumber = () => Math.floor(Math.random() * 1001); // 0~1000の整数を返す
+
+  const query = {
+    id: encrypt(generateRandomNumber()),
+  };
   if (error) {
     return <div>failed to load</div>;
   }
@@ -22,22 +35,9 @@ const Page = () => {
 
   return (
     <div>
-      <Button
-        onClick={() => {
-          console.log(chinese);
-          console.log(japanese);
-          console.log(imageUrl);
-          console.log(types);
-        }}
-        size="xl"
-      >
-        データフェッチ
-      </Button>
       <Quiz chinese={chinese} />
       {isCorrect ? (
-        <>
-          <PokemonImage imageUrl={imageUrl} japanese={japanese} />
-        </>
+        <PokemonImage imageUrl={imageUrl} japanese={japanese} />
       ) : (
         <>
           <TypeHint types={types} />
@@ -45,6 +45,11 @@ const Page = () => {
         </>
       )}
       <SubmitForm japanese={japanese} setIsCorrect={setIsCorrect} />
+      <div className="mt-2">
+        <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
+          <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
+        </Button>
+      </div>
     </div>
   );
 };
