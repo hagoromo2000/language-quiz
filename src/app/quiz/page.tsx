@@ -1,4 +1,5 @@
 "use client";
+import { OpenCorrectAnswer } from "@/components/organisms/open-correct-answer";
 import { PokemonImage } from "@/components/organisms/pokemon-image";
 import { Quiz } from "@/components/organisms/quiz";
 import { SilhouetteHint } from "@/components/organisms/silhouette-hint";
@@ -46,6 +47,7 @@ const Page = () => {
       )}
       <SubmitForm japanese={japanese} setIsCorrect={setIsCorrect} />
       <div className="mt-2">
+        {isCorrect ? null : <OpenCorrectAnswer setIsCorrect={setIsCorrect} />}
         <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
           <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
         </Button>
