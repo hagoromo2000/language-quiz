@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-
+import { useReward } from "react-rewards";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -37,10 +36,12 @@ export const SubmitForm = (props: PropsType) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
+  const { reward } = useReward("rewardId", "confetti");
 
   const onSubmit = (data: any) => {
     if (props.japanese && data.pokemon === props.japanese) {
       props.setIsCorrect(true);
+      reward();
     } else {
       form.setError("pokemon", {
         type: "manual",
@@ -66,7 +67,10 @@ export const SubmitForm = (props: PropsType) => {
           )}
         />
         <div className="mt-2">
-          <Button type="submit">キミに決めた！</Button>
+          <Button type="submit">
+            キミに決めた！
+            <span id="rewardId" />
+          </Button>
         </div>
       </form>
     </Form>
