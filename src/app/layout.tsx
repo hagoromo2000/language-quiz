@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import Background from "@/components/layout/background";
-import { Provider } from "jotai";
+import Providers from "@/atoms/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +22,10 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <Background>
-          <Provider>
+          <Providers>
             <Header />
             <main className="container mx-auto">{children}</main>
-          </Provider>
+          </Providers>
         </Background>
       </body>
     </html>

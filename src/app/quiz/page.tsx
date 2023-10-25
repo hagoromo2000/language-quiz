@@ -10,7 +10,7 @@ import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
 import {
   encrypt,
   decrypt,
-  generateRandomNumber,
+  useRandomNumber,
 } from "@/hooks/use-pokemon-crypted-id";
 import { usePokemonSpecies } from "@/hooks/use-pokemon-speacies";
 import Link from "next/link";
@@ -27,7 +27,7 @@ const Page = () => {
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
   const query = {
-    id: encrypt(generateRandomNumber()),
+    id: encrypt(useRandomNumber()),
   };
   if (error) {
     return <div>failed to load</div>;

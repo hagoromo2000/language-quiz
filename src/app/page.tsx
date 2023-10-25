@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { encrypt, generateRandomNumber } from "@/hooks/use-pokemon-crypted-id";
+import { encrypt, useRandomNumber } from "@/hooks/use-pokemon-crypted-id";
 import Link from "next/link";
 
 export default function Home() {
   const query = {
-    id: encrypt(generateRandomNumber()),
+    id: encrypt(useRandomNumber()),
   };
   return (
     <div>

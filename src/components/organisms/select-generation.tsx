@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Select,
@@ -8,22 +9,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useAtom } from "jotai";
+import { generationAtom } from "@/atoms/generation-atoms";
+import { generations } from "@/hooks/use-generation";
 
 export const SelectGeneration = () => {
-  const generations = [
-    { value: "1", name: "赤・緑" },
-    { value: "2", name: "~ 金・銀" },
-    { value: "3", name: "~ ルビー・サファイア" },
-    { value: "4", name: "~ ダイヤモンド・パール" },
-    { value: "5", name: "~ ブラック・ホワイト" },
-    { value: "6", name: "~ X・Y" },
-    { value: "7", name: "~ サン・ムーン" },
-    { value: "8", name: "~ ソード・シールド" },
-    { value: "9", name: "~ スカーレット・バイオレット" },
-  ];
+  const [, setGeneration] = useAtom(generationAtom);
 
   return (
-    <Select>
+    <Select
+      onValueChange={(value) => {
+        setGeneration(parseInt(value));
+      }}
+    >
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="出題範囲" />
       </SelectTrigger>
@@ -31,7 +29,7 @@ export const SelectGeneration = () => {
         <SelectGroup>
           <SelectLabel>出題範囲</SelectLabel>
           {generations.map((gen) => (
-            <SelectItem key={gen.value} value={gen.value}>
+            <SelectItem key={gen.value.toString()} value={gen.value.toString()}>
               {gen.name}
             </SelectItem>
           ))}
