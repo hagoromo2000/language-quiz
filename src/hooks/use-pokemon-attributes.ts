@@ -32,6 +32,20 @@ const pokemonTypeJapaneseMapping = {
 
 type PokemonTypeEnglish = keyof typeof pokemonTypeJapaneseMapping;
 
+export const convertTypesToEnglish = (
+  japaneseNames: string[]
+): (PokemonTypeEnglish | null)[] => {
+  return japaneseNames?.map((japaneseName) => {
+    const entry = Object.entries(pokemonTypeJapaneseMapping).find(
+      ([_, value]) => value === japaneseName
+    );
+
+    if (!entry) return null;
+
+    return entry[0] as PokemonTypeEnglish;
+  });
+};
+
 const convertTypesToJapanese = (
   typesInEnglish: PokemonTypeEnglish[]
 ): string[] => {

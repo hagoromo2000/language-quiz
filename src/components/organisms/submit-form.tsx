@@ -39,7 +39,6 @@ export const SubmitForm = ({ japanese }: PropsType) => {
 
   const onSubmit = (data: any) => {
     if (japanese && data.pokemon === japanese) {
-      // 一致する場合の処理
       alert("一致しました！");
     } else {
       form.setError("pokemon", {
@@ -51,7 +50,6 @@ export const SubmitForm = ({ japanese }: PropsType) => {
 
   return (
     <Form {...form}>
-      {/* 実際のform要素にonSubmitイベントハンドラを追加 */}
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
@@ -62,12 +60,13 @@ export const SubmitForm = ({ japanese }: PropsType) => {
               <FormControl>
                 <Input placeholder="ピカチュウ" {...field} />
               </FormControl>
-              <FormDescription>ひらがなかカタカナで入力してね</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">キミに決めた！</Button>
+        <div className="mt-2">
+          <Button type="submit">キミに決めた！</Button>
+        </div>
       </form>
     </Form>
   );
