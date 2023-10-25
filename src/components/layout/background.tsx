@@ -35,7 +35,6 @@ export default function Background({
           </svg>
         </div>
       </div>
-
       {children}
     </>
   );

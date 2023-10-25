@@ -30,16 +30,17 @@ const formSchema = z.object({
 
 type PropsType = {
   japanese?: string;
+  setIsCorrect: (isCorrect: boolean) => void;
 };
 
-export const SubmitForm = ({ japanese }: PropsType) => {
+export const SubmitForm = (props: PropsType) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
   });
 
   const onSubmit = (data: any) => {
-    if (japanese && data.pokemon === japanese) {
-      alert("一致しました！");
+    if (props.japanese && data.pokemon === props.japanese) {
+      props.setIsCorrect(true);
     } else {
       form.setError("pokemon", {
         type: "manual",
