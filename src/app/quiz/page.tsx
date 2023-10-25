@@ -15,7 +15,7 @@ import { useState } from "react";
 const Page = () => {
   const searchParams = useSearchParams();
   const encryptedId = searchParams.get("id");
-  const id = encryptedId ? decrypt(encryptedId) : "25";
+  const id: string = encryptedId ? decrypt(encryptedId).toString() : "25";
 
   const { error, isLoading, chinese, japanese } = usePokemonSpecies(id);
   const { imageUrl, types } = usePokemonAttributes(id);
