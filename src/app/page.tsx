@@ -1,4 +1,5 @@
-import React from "react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,6 +9,9 @@ export default function Home() {
       <p>
         ※このアプリは、ポケモンの中国語名を学習することを目的として作成されています。
       </p>
+      <Button asChild>
+        <Link href={"quiz"}>早速遊んでみる！</Link>
+      </Button>
     </div>
   );
 }

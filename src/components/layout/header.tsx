@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 
 export const Header = () => {
   return (
     <header>
-      <Link href="/" className={buttonVariants({ variant: "outline" })}>
-        ポケモン中国語クイズ
-      </Link>
+      <Button asChild size="lg" variant="outline">
+        <Link href="/">ポケモン中国語クイズ</Link>
+      </Button>
     </header>
   );
 };
