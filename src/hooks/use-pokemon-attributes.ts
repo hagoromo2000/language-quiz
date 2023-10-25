@@ -35,7 +35,7 @@ type PokemonTypeEnglish = keyof typeof pokemonTypeJapaneseMapping;
 const convertTypesToJapanese = (
   typesInEnglish: PokemonTypeEnglish[]
 ): string[] => {
-  return typesInEnglish.map(
+  return typesInEnglish?.map(
     (type) => pokemonTypeJapaneseMapping[type] || "未知のタイプ"
   );
 };

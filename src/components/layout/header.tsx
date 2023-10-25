@@ -9,7 +9,7 @@ export const Header = () => {
       <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
           <Link href="/">
-            <Image src="/icon.png" height={50} width={50} alt="ロゴ" />
+            <Image src="/logo.png" height={40} width={150} alt="ロゴ" />
           </Link>
         </div>
         <div className="flex items-center justify-between py-3 md:py-5 md:block">
