@@ -1,6 +1,13 @@
-"use client";
 import { fetcher } from "@/lib/fetcher";
 import useSWR from "swr";
+
+type PokemonLanguageData = {
+  language: {
+    name: string;
+    url: string;
+  };
+  name: string;
+};
 
 export const usePokemonSpecies = (id: string) => {
   const { data, error } = useSWR(
@@ -8,7 +15,13 @@ export const usePokemonSpecies = (id: string) => {
     fetcher
   );
   return {
-    data: data,
     error: error,
+    isLoading: !error && !data,
+    chinese: data?.names.find(
+      (name: PokemonLanguageData) => name.language.name === "zh-Hans"
+    ).name,
+    japanese: data?.names.find(
+      (name: PokemonLanguageData) => name.language.name === "ja-Hrkt"
+    ).name,
   };
 };
