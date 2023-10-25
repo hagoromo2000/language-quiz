@@ -12,6 +12,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 const pokemonSchema = z.string().refine(
   (value) => {
@@ -37,10 +38,12 @@ export const SubmitForm = (props: PropsType) => {
     resolver: zodResolver(formSchema),
   });
   const { reward } = useReward("rewardId", "confetti");
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const onSubmit = (data: any) => {
     if (props.japanese && data.pokemon === props.japanese) {
       props.setIsCorrect(true);
+      setIsDisabled(true);
       reward();
     } else {
       form.setError("pokemon", {
@@ -60,14 +63,18 @@ export const SubmitForm = (props: PropsType) => {
             <FormItem>
               <FormLabel>ポケモン名を入力</FormLabel>
               <FormControl>
-                <Input placeholder="ピカチュウ" {...field} />
+                <Input
+                  placeholder="ピカチュウ"
+                  {...field}
+                  disabled={isDisabled}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         <div className="mt-2">
-          <Button type="submit">
+          <Button type="submit" disabled={isDisabled}>
             キミに決めた！
             <span id="rewardId" />
           </Button>

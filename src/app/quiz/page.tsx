@@ -1,4 +1,5 @@
 "use client";
+import { PokemonImage } from "@/components/organisms/pokemon-image";
 import { Quiz } from "@/components/organisms/quiz";
 import { SilhouetteHint } from "@/components/organisms/silhouette-hint";
 import { SubmitForm } from "@/components/organisms/submit-form";
@@ -33,10 +34,17 @@ const Page = () => {
         データフェッチ
       </Button>
       <Quiz chinese={chinese} />
-      <TypeHint types={types} />
-      <SilhouetteHint imageUrl={imageUrl} />
+      {isCorrect ? (
+        <>
+          <PokemonImage imageUrl={imageUrl} japanese={japanese} />
+        </>
+      ) : (
+        <>
+          <TypeHint types={types} />
+          <SilhouetteHint imageUrl={imageUrl} />
+        </>
+      )}
       <SubmitForm japanese={japanese} setIsCorrect={setIsCorrect} />
-      {isCorrect && <div>正解！</div>}
     </div>
   );
 };
