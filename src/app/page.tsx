@@ -9,7 +9,7 @@ export default function Home() {
       <p>
         ※このアプリは、ポケモンの中国語名を学習することを目的として作成されています。
       </p>
-      <Button asChild>
+      <Button asChild size="xl">
         <Link href={"quiz"}>早速遊んでみる！</Link>
       </Button>
     </div>
