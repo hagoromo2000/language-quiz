@@ -7,7 +7,11 @@ import { SubmitForm } from "@/components/organisms/submit-form";
 import { TypeHint } from "@/components/organisms/type-hint";
 import { Button } from "@/components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
-import { encrypt, decrypt } from "@/hooks/use-pokemon-crypted-id";
+import {
+  encrypt,
+  decrypt,
+  generateRandomNumber,
+} from "@/hooks/use-pokemon-crypted-id";
 import { usePokemonSpecies } from "@/hooks/use-pokemon-speacies";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -21,8 +25,6 @@ const Page = () => {
   const { error, isLoading, chinese, japanese } = usePokemonSpecies(id);
   const { imageUrl, types } = usePokemonAttributes(id);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
-
-  const generateRandomNumber = () => Math.floor(Math.random() * 1001); // 0~1000の整数を返す
 
   const query = {
     id: encrypt(generateRandomNumber()),
