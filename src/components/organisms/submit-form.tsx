@@ -60,13 +60,16 @@ export const SubmitForm = (props: PropsType) => {
             <FormItem>
               <FormLabel>ポケモン名を入力</FormLabel>
               <FormControl>
-                <div className="flex items-center space-x-2">
-                  <Input
-                    className="flex-shrink"
-                    placeholder="ピカチュウ"
-                    {...field}
-                    disabled={props.isCorrect}
-                  />
+                <div className="flex flex-col items-center space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+                  <div>
+                    <Input
+                      className="flex-shrink w-full md:w-auto"
+                      placeholder="ピカチュウ"
+                      {...field}
+                      disabled={props.isCorrect}
+                    />
+                    <FormMessage className="w-full md:w-auto" />
+                  </div>
                   <Button
                     type="submit"
                     disabled={props.isCorrect}
@@ -77,7 +80,6 @@ export const SubmitForm = (props: PropsType) => {
                   </Button>
                 </div>
               </FormControl>
-              <FormMessage />
             </FormItem>
           )}
         />
