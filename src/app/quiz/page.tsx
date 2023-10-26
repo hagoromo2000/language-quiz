@@ -40,34 +40,38 @@ const Page = () => {
   }
 
   return (
-    <div>
-      <Quiz chinese={chinese} />
-      {isCorrect ? (
-        <PokemonImage imageUrl={imageUrl} japanese={japanese} />
-      ) : (
-        <>
-          <TypeHint types={types} />
-          <SilhouetteHint imageUrl={imageUrl} />
-        </>
-      )}
-      <SubmitForm
-        japanese={japanese}
-        setIsCorrect={setIsCorrect}
-        isCorrect={isCorrect}
-      />
-      <div className="mt-2">
+    <div className="flex flex-wrap">
+      <div className="w-full md:w-1/2">
+        <Quiz chinese={chinese} />
+      </div>
+      <div className="w-full md:w-1/2">
         {isCorrect ? (
-          <XShareButton
-            text={`「${chinese}」はどのポケモンの中国語名?`}
-            url={window.location.href}
-            hashtags={["ポケモン中国語クイズ"]}
-          />
+          <PokemonImage imageUrl={imageUrl} japanese={japanese} />
         ) : (
-          <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
+          <>
+            <TypeHint types={types} />
+            <SilhouetteHint imageUrl={imageUrl} />
+          </>
         )}
-        <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
-          <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
-        </Button>
+        <SubmitForm
+          japanese={japanese}
+          setIsCorrect={setIsCorrect}
+          isCorrect={isCorrect}
+        />
+        <div className="mt-2">
+          {isCorrect ? (
+            <XShareButton
+              text={`「${chinese}」はどのポケモンの中国語名?`}
+              url={window.location.href}
+              hashtags={["ポケモン中国語クイズ"]}
+            />
+          ) : (
+            <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
+          )}
+          <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
+            <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );

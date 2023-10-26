@@ -12,36 +12,31 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
-
-const pokemonSchema = z.string().refine(
-  (value) => {
-    const regex = /^[ぁ-んァ-ン]+$/;
-    return regex.test(value) && value.length <= 6;
-  },
-  {
-    message: "ポケモン名はひらがなかカタカナで6文字以内で入力してください",
-  }
-);
+import {
+  PokemonName,
+  hiraganaToKatakana,
+  pokemonSchema,
+} from "@/hooks/use-submit";
 
 const formSchema = z.object({
   pokemon: pokemonSchema,
 });
 
 type PropsType = {
-  japanese?: string;
+  japanese: string;
   setIsCorrect: (isCorrect: boolean) => void;
   isCorrect: boolean;
 };
 
 export const SubmitForm = (props: PropsType) => {
-  const form = useForm({
+  const form = useForm<PokemonName>({
     resolver: zodResolver(formSchema),
   });
   const { reward } = useReward("rewardId", "confetti");
 
-  const onSubmit = (data: any) => {
-    if (props.japanese && data.pokemon === props.japanese) {
+  const onSubmit = (data: PokemonName) => {
+    const submittedName = hiraganaToKatakana(data.pokemon);
+    if (submittedName === props.japanese) {
       props.setIsCorrect(true);
       reward();
     } else {
