@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import Background from "@/components/layout/background";
 import Providers from "@/atoms/provider";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 
@@ -20,6 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body className={notoSansJP.className}>
         <Background>
           <Providers>
