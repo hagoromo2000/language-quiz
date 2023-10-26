@@ -17,7 +17,9 @@ export const OpenCorrectAnswer = (props: PropsType) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">答えを見る</Button>
+        <Button variant="destructive" size="lg">
+          答えを見る
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

@@ -10,7 +10,7 @@ const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ポケモン中国語クイズ",
   description:
-    "ポケモンの繁体字から、日本語名を当てるクイズを遊べるwebアプリです。",
+    "ポケモンの中国語名（繁体字）から、日本語名を当てるクイズを遊べるwebアプリです。",
 };
 
 export default function RootLayout({
@@ -23,8 +23,12 @@ export default function RootLayout({
       <body className={notoSansJP.className}>
         <Background>
           <Providers>
-            <Header />
-            <main className="container mx-auto">{children}</main>
+            <div className="min-h-screen">
+              <Header />
+              <main className="container mx-auto flex flex-col justify-center">
+                {children}
+              </main>
+            </div>
           </Providers>
         </Background>
       </body>

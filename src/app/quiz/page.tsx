@@ -19,13 +19,15 @@ import { useState } from "react";
 import { XShareButton } from "@/components/organisms/x-share-button";
 import { Loading } from "@/components/layout/loading";
 import { Error } from "@/components/layout/error";
+import { Hints } from "@/components/organisms/hints";
 
 const Page = () => {
   const searchParams = useSearchParams();
   const encryptedId = searchParams.get("id");
   const id: string = encryptedId ? decrypt(encryptedId).toString() : "25";
 
-  const { error, isLoading, chinese, japanese } = usePokemonSpecies(id);
+  const { error, isLoading, chinese, japanese, english } =
+    usePokemonSpecies(id);
   const { imageUrl, types } = usePokemonAttributes(id);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
 
@@ -40,7 +42,7 @@ const Page = () => {
   }
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mt-4">
       <div className="w-full md:w-1/2 flex justify-center items-center">
         <Quiz chinese={chinese} />
       </div>
@@ -48,29 +50,29 @@ const Page = () => {
         {isCorrect ? (
           <PokemonImage imageUrl={imageUrl} japanese={japanese} />
         ) : (
-          <>
-            <TypeHint types={types} />
-            <SilhouetteHint imageUrl={imageUrl} />
-          </>
+          <Hints types={types} imageUrl={imageUrl} english={english} />
         )}
-        <div className="mt-4">
+        <div className="mt-4 flex justify-center">
           <SubmitForm
             japanese={japanese}
             setIsCorrect={setIsCorrect}
             isCorrect={isCorrect}
           />
         </div>
-        <div className="mt-2 flex flex-col">
-          {isCorrect ? (
+        <div className="my-6 flex flex-col items-center md:flex-row md:items-start space-y-4 md:space-x-4 md:space-y-0 justify-center">
+          <div>
+            {isCorrect ? null : (
+              <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
+            )}
+          </div>
+          <div>
             <XShareButton
               text={`「${chinese}」はどのポケモンの中国語名?`}
               url={window.location.href}
               hashtags={["ポケモン中国語クイズ"]}
             />
-          ) : (
-            <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
-          )}
-          <div className="mt-4 w-full">
+          </div>
+          <div>
             <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
               <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
             </Button>

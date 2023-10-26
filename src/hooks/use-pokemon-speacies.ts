@@ -23,5 +23,6 @@ export const usePokemonSpecies = (id: string) => {
     japanese: data?.names.find(
       (name: PokemonLanguageData) => name.language.name === "ja-Hrkt"
     ).name,
+    english: data?.name,
   };
 };

@@ -14,7 +14,7 @@ export const XShareButton = (props: PropsType) => {
     <Button asChild size="lg" variant="outline">
       <XIntentPost text={props.text} url={props.url} hashtags={props.hashtags}>
         <FaXTwitter />
-        でシェア！
+        でシェア
       </XIntentPost>
     </Button>
   );

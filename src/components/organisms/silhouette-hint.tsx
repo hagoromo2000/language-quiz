@@ -14,7 +14,7 @@ export const SilhouetteHint = (props: PropsType) => {
   return (
     <Accordion type="single" collapsible>
       <AccordionItem value="item-1">
-        <AccordionTrigger>ヒント2 シルエット</AccordionTrigger>
+        <AccordionTrigger>ヒント3 シルエット</AccordionTrigger>
         <AccordionContent>
           <div style={{ filter: "brightness(0%)" }}>
             <Image
