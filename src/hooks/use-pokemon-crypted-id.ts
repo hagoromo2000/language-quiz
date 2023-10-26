@@ -1,3 +1,4 @@
+"use client";
 import { generationAtom } from "@/atoms/generation-atoms";
 import { useAtom } from "jotai";
 

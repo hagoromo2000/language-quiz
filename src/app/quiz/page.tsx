@@ -5,7 +5,6 @@ import { Quiz } from "@/components/organisms/quiz";
 import { SilhouetteHint } from "@/components/organisms/silhouette-hint";
 import { SubmitForm } from "@/components/organisms/submit-form";
 import { TypeHint } from "@/components/organisms/type-hint";
-import { XIntentPost } from "@/components/organisms/x-share-button";
 import { Button } from "@/components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
 import {
@@ -17,6 +16,7 @@ import { usePokemonSpecies } from "@/hooks/use-pokemon-speacies";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { XShareButton } from "@/components/organisms/x-share-button";
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -55,7 +55,11 @@ const Page = () => {
       />
       <div className="mt-2">
         {isCorrect ? (
-          <XIntentPost />
+          <XShareButton
+            text={`「${chinese}」はどのポケモンの中国語名?`}
+            url={window.location.href}
+            hashtags={["ポケモン中国語クイズ"]}
+          />
         ) : (
           <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
         )}
