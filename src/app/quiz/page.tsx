@@ -17,6 +17,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { XShareButton } from "@/components/organisms/x-share-button";
+import { Loading } from "@/components/layout/loading";
+import { Error } from "@/components/layout/error";
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -31,10 +33,10 @@ const Page = () => {
     id: encrypt(useRandomNumber()),
   };
   if (error) {
-    return <div>failed to load</div>;
+    return <Error />;
   }
   if (isLoading) {
-    return <div>loading...</div>;
+    return <Loading />;
   }
 
   return (
