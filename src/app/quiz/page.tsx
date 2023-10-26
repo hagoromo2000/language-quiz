@@ -41,10 +41,10 @@ const Page = () => {
 
   return (
     <div className="flex flex-wrap">
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 flex justify-center items-center">
         <Quiz chinese={chinese} />
       </div>
-      <div className="w-full md:w-1/2">
+      <div className="w-full mt-4 md:w-1/2 justify-center items-center">
         {isCorrect ? (
           <PokemonImage imageUrl={imageUrl} japanese={japanese} />
         ) : (
@@ -53,12 +53,14 @@ const Page = () => {
             <SilhouetteHint imageUrl={imageUrl} />
           </>
         )}
-        <SubmitForm
-          japanese={japanese}
-          setIsCorrect={setIsCorrect}
-          isCorrect={isCorrect}
-        />
-        <div className="mt-2">
+        <div className="mt-4">
+          <SubmitForm
+            japanese={japanese}
+            setIsCorrect={setIsCorrect}
+            isCorrect={isCorrect}
+          />
+        </div>
+        <div className="mt-2 flex flex-col">
           {isCorrect ? (
             <XShareButton
               text={`「${chinese}」はどのポケモンの中国語名?`}
@@ -68,9 +70,11 @@ const Page = () => {
           ) : (
             <OpenCorrectAnswer setIsCorrect={setIsCorrect} />
           )}
-          <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
-            <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
-          </Button>
+          <div className="mt-4 w-full">
+            <Button asChild size="lg" onClick={() => setIsCorrect(false)}>
+              <Link href={{ pathname: "quiz", query: query }}>次の問題へ</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

@@ -31,6 +31,9 @@ type PropsType = {
 export const SubmitForm = (props: PropsType) => {
   const form = useForm<PokemonName>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      pokemon: "",
+    },
   });
   const { reward } = useReward("rewardId", "confetti");
 
@@ -57,22 +60,27 @@ export const SubmitForm = (props: PropsType) => {
             <FormItem>
               <FormLabel>ポケモン名を入力</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="ピカチュウ"
-                  {...field}
-                  disabled={props.isCorrect}
-                />
+                <div className="flex items-center space-x-2">
+                  <Input
+                    className="flex-shrink"
+                    placeholder="ピカチュウ"
+                    {...field}
+                    disabled={props.isCorrect}
+                  />
+                  <Button
+                    type="submit"
+                    disabled={props.isCorrect}
+                    className="flex-shrink"
+                  >
+                    キミに決めた！
+                    <span id="rewardId" />
+                  </Button>
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <div className="mt-2">
-          <Button type="submit" disabled={props.isCorrect}>
-            キミに決めた！
-            <span id="rewardId" />
-          </Button>
-        </div>
       </form>
     </Form>
   );
