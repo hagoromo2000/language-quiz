@@ -17,6 +17,6 @@ export const pokemonSchema = z.string().refine(
     return regex.test(value) && value.length <= 6;
   },
   {
-    message: "ポケモン名はひらがなかカタカナで6文字以内で入力してください",
+    message: "ポケモン名は6文字以内で入力してください",
   }
 );
