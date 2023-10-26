@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../../components/ui/badge";
 import { convertTypesToEnglish } from "@/hooks/use-pokemon-attributes";
 
 type PropsType = {

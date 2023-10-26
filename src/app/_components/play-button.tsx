@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 import { encrypt, useRandomNumber } from "@/hooks/use-pokemon-crypted-id";
 import { useEffect, useState } from "react";
 
