@@ -2,6 +2,7 @@ import React from "react";
 import { TypeHint } from "./type-hint";
 import { SilhouetteHint } from "./silhouette-hint";
 import { EnglishHint } from "./english-hint";
+import { GenerationHint } from "./generation-hint";
 
 type PropsType = {
   types: string[];
@@ -13,6 +14,7 @@ export const Hints = (props: PropsType) => {
     <>
       <TypeHint types={props.types} />
       <EnglishHint english={props.english} />
+      <GenerationHint />
       <SilhouetteHint imageUrl={props.imageUrl} />
     </>
   );

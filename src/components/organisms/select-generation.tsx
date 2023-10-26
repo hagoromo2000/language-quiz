@@ -26,7 +26,7 @@ export const SelectGeneration = () => {
           <SelectLabel>出題範囲</SelectLabel>
           {generations.map((gen) => (
             <SelectItem key={gen.value.toString()} value={gen.value.toString()}>
-              {gen.name}
+              ~ {gen.name}
             </SelectItem>
           ))}
         </SelectGroup>
