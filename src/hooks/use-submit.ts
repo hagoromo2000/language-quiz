@@ -13,7 +13,7 @@ export const hiraganaToKatakana = (str: string): string => {
 
 export const pokemonSchema = z.string().refine(
   (value) => {
-    const regex = /^[ぁ-んァ-ヶー\u2640\u2642]+$/;
+    const regex = /^[ぁ-んァ-ヶー\u2640\u2642]+$/; // ニドラン♂, ニドラン♀を許容するため、\u2640, \u2642を追加
     return regex.test(value) && value.length <= 6;
   },
   {
