@@ -2,9 +2,7 @@
 import { OpenCorrectAnswer } from "@/app/quiz/_components/open-correct-answer";
 import { PokemonImage } from "@/app/quiz/_components/pokemon-image";
 import { Quiz } from "@/app/quiz/_components/quiz";
-import { SilhouetteHint } from "@/app/quiz/_components/silhouette-hint";
 import { SubmitForm } from "@/app/quiz/_components/submit-form";
-import { TypeHint } from "@/app/quiz/_components/type-hint";
 import { Button } from "@/components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
 import {

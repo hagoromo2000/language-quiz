@@ -4,7 +4,7 @@ export type PokemonName = {
   pokemon: string;
 };
 
-export const hiraganaToKatakana = (str: string) => {
+export const hiraganaToKatakana = (str: string): string => {
   return str.replace(/[\u3041-\u3096]/g, (match) => {
     const chr = match.charCodeAt(0) + 0x60;
     return String.fromCharCode(chr);
@@ -13,7 +13,7 @@ export const hiraganaToKatakana = (str: string) => {
 
 export const pokemonSchema = z.string().refine(
   (value) => {
-    const regex = /^[ぁ-んァ-ヶー]+$/;
+    const regex = /^[ぁ-んァ-ヶー\u2640\u2642]+$/;
     return regex.test(value) && value.length <= 6;
   },
   {
