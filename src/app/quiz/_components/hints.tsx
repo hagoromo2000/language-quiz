@@ -1,8 +1,8 @@
 import React from "react";
-import { TypeHint } from "./type-hint";
-import { SilhouetteHint } from "./silhouette-hint";
-import { EnglishHint } from "./english-hint";
-import { GenerationHint } from "./generation-hint";
+import { TypeHint } from "./hints/type-hint";
+import { SilhouetteHint } from "./hints/silhouette-hint";
+import { EnglishHint } from "./hints/english-hint";
+import { GenerationHint } from "./hints/generation-hint";
 
 type PropsType = {
   types: string[];
