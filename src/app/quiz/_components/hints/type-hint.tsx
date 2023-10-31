@@ -3,8 +3,8 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "../../../../components/ui/badge";
+} from "@/app/_components/ui/accordion";
+import { Badge } from "../../../_components/ui/badge";
 import { convertTypesToEnglish } from "@/hooks/use-pokemon-attributes";
 
 type PropsType = {

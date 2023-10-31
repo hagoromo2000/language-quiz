@@ -1,4 +1,4 @@
-import { PlayButton } from "@/app/_components/play-button";
+import { PlayButton } from "@/app/_components/feature/play-button";
 import Image from "next/image";
 
 export default function Home() {

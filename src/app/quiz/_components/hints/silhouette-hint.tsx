@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/app/_components/ui/accordion";
 import Image from "next/image";
 
 type PropsType = {

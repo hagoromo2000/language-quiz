@@ -8,7 +8,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/app/_components/ui/select";
 import { useAtom } from "jotai";
 import { generationAtom } from "@/atoms/generation-atoms";
 import { generations } from "@/hooks/use-generation";

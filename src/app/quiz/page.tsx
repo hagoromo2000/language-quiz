@@ -3,7 +3,7 @@ import { OpenCorrectAnswer } from "@/app/quiz/_components/open-correct-answer";
 import { PokemonImage } from "@/app/quiz/_components/pokemon-image";
 import { Quiz } from "@/app/quiz/_components/quiz";
 import { SubmitForm } from "@/app/quiz/_components/submit-form";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/_components/ui/button";
 import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
 import {
   encrypt,
@@ -15,8 +15,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { XShareButton } from "@/app/quiz/_components/x-share-button";
-import { Loading } from "@/components/layout/loading";
-import { Error } from "@/components/layout/error";
+import { Loading } from "@/app/_components/layout/loading";
+import { Error } from "@/app/_components/layout/error";
 import { Hints } from "@/app/quiz/_components/hints";
 
 const Page = () => {

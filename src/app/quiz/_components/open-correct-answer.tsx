@@ -7,8 +7,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+} from "@/app/_components/ui/alert-dialog";
+import { Button } from "@/app/_components/ui/button";
 type PropsType = {
   setIsCorrect: (isCorrect: boolean) => void;
 };

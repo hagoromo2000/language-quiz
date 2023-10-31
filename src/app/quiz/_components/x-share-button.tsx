@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../_components/ui/button";
 import { XIntentPost } from "@/lib/x-intent-post";
 import { FaXTwitter } from "react-icons/fa6";
 

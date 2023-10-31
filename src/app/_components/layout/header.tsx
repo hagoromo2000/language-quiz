@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { SelectGeneration } from "../../app/quiz/_components/select-generation";
+import { SelectGeneration } from "../../quiz/_components/select-generation";
 
 export const Header = () => {
   return (
