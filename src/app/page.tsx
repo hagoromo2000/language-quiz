@@ -1,5 +1,6 @@
 import { PlayButton } from "@/app/_components/top/play-button";
 import Image from "next/image";
+import { SelectPokemon } from "./_components/top/select-pokemon";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
         </p>
         <div className="mt-6">
           <PlayButton />
+        </div>
+        <div>
+          <SelectPokemon />
         </div>
       </div>
     </div>
