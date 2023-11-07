@@ -26,6 +26,7 @@ export const SelectPokemon = () => {
       </Label>
       <div className="w-5/6 md:w-1/2">
         <Select
+          instanceId="pokemon-select"
           id="pokemon"
           options={options}
           isSearchable
