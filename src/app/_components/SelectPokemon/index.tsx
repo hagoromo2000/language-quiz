@@ -5,7 +5,7 @@ import { Label } from "../ui/label";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { useState } from "react";
-import { encrypt } from "@/hooks/use-pokemon-crypted-id";
+import { encrypt } from "@/hooks/usePokemonCryptedId";
 
 const options = pokemonData.map((pokemon) => ({
   value: pokemon.no,

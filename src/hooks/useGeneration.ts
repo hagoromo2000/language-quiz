@@ -1,5 +1,5 @@
 import { useSearchParams } from "next/navigation";
-import { decrypt } from "./use-pokemon-crypted-id";
+import { decrypt } from "./usePokemonCryptedId";
 
 export const FIRST_GENERATION = 151;
 export const SECOND_GENERATION = 251;

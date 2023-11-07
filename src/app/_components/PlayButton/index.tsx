@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { encrypt, useRandomNumber } from "@/hooks/use-pokemon-crypted-id";
+import { encrypt, useRandomNumber } from "@/hooks/usePokemonCryptedId";
 import { useEffect, useState } from "react";
 
 export const PlayButton = () => {

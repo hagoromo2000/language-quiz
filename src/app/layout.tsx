@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/app/_components/layout/header";
-import Background from "@/app/_components/layout/background";
+import { Header } from "@/app/_components/Layout/header";
+import Background from "@/app/_components/Layout/background";
 import Providers from "@/atoms/provider";
-import GoogleAnalytics from "@/app/_components/GoogleAnalytics";
+import GoogleAnalytics from "@/app/_components/GoogleAnalytics/GoogleAnalytics";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 

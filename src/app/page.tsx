@@ -1,6 +1,6 @@
-import { PlayButton } from "@/app/_components/top/play-button";
+import { PlayButton } from "@/app/_components/PlayButton";
 import Image from "next/image";
-import { SelectPokemon } from "./_components/top/select-pokemon";
+import { SelectPokemon } from "./_components/SelectPokemon";
 
 export default function Home() {
   return (

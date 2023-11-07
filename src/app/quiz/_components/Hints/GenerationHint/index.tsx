@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/app/_components/ui/accordion";
-import { useGeneration } from "@/hooks/use-generation";
+import { useGeneration } from "@/hooks/useGeneration";
 
 export const GenerationHint = () => {
   const generation = useGeneration();

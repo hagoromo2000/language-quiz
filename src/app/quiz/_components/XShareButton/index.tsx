@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "../../_components/ui/button";
-import { XIntentPost } from "@/lib/x-intent-post";
+import { Button } from "../../../_components/ui/button";
+import { XIntentPost } from "@/lib/XIntentPost";
 import { FaXTwitter } from "react-icons/fa6";
 
 type PropsType = {

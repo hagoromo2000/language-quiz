@@ -1,23 +1,19 @@
 "use client";
-import { OpenCorrectAnswer } from "@/app/quiz/_components/open-correct-answer";
-import { PokemonImage } from "@/app/quiz/_components/pokemon-image";
-import { Quiz } from "@/app/quiz/_components/quiz";
-import { SubmitForm } from "@/app/quiz/_components/submit-form";
+import { OpenCorrectAnswer } from "@/app/quiz/_components/OpenCorrectAnswer";
+import { PokemonImage } from "@/app/quiz/_components/PokemonImage";
+import { Quiz } from "@/app/quiz/_components/Quiz";
+import { SubmitForm } from "@/app/quiz/_components/SubmitForm";
 import { Button } from "@/app/_components/ui/button";
-import { usePokemonAttributes } from "@/hooks/use-pokemon-attributes";
-import {
-  encrypt,
-  decrypt,
-  useRandomNumber,
-} from "@/hooks/use-pokemon-crypted-id";
-import { usePokemonSpecies } from "@/hooks/use-pokemon-speacies";
+import { usePokemonAttributes } from "@/hooks/usePokemonAttributes";
+import { encrypt, decrypt, useRandomNumber } from "@/hooks/usePokemonCryptedId";
+import { usePokemonSpecies } from "@/hooks/usePokemonSpeacies";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { XShareButton } from "@/app/quiz/_components/x-share-button";
-import { Loading } from "@/app/_components/layout/loading";
-import { Error } from "@/app/_components/layout/error";
-import { Hints } from "@/app/quiz/_components/hints";
+import { XShareButton } from "@/app/quiz/_components/XShareButton";
+import { Loading } from "@/app/_components/Layout/loading";
+import { Error } from "@/app/_components/Layout/error";
+import { Hints } from "@/app/quiz/_components/Hints";
 
 const Page = () => {
   const searchParams = useSearchParams();

@@ -10,8 +10,8 @@ import {
   SelectValue,
 } from "@/app/_components/ui/select";
 import { useAtom } from "jotai";
-import { generationAtom } from "@/atoms/generation-atoms";
-import { generations } from "@/hooks/use-generation";
+import { generationAtom } from "@/atoms/generationAtoms";
+import { generations } from "@/hooks/useGeneration";
 
 export const SelectGeneration = () => {
   const [, setGeneration] = useAtom(generationAtom);

@@ -16,7 +16,7 @@ import {
   PokemonName,
   hiraganaToKatakana,
   pokemonSchema,
-} from "@/hooks/use-submit";
+} from "@/hooks/useSubmit";
 
 const formSchema = z.object({
   pokemon: pokemonSchema,

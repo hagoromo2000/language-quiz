@@ -1,5 +1,5 @@
 "use client";
-import { generationAtom } from "@/atoms/generation-atoms";
+import { generationAtom } from "@/atoms/generationAtoms";
 import { useAtom } from "jotai";
 
 export const useRandomNumber = () => {
