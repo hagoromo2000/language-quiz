@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   title: "ポケモン中国語クイズ",
   description:
     "ポケモンの中国語名（繁体字）から、日本語名を当てるクイズを遊べるwebアプリです。",
+  twitter: {
+    title: "ポケモン中国クイズ",
+    description:
+      "ポケモンの中国語名（繁体字）から、日本語名を当てるクイズを遊べるwebアプリです。",
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
