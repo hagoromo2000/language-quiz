@@ -11,8 +11,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { XShareButton } from "@/app/quiz/_components/XShareButton";
-import { Loading } from "@/app/_components/Layout/loading";
-import { Error } from "@/app/_components/Layout/error";
+import { Loading } from "@/app/_components/Layout/Loading";
+import { Error } from "@/app/_components/Layout/Error";
 import { Hints } from "@/app/quiz/_components/Hints";
 
 const Page = () => {
