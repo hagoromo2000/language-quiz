@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/app/_components/Layout/Header";
-import Background from "@/app/_components/Layout/BackGround";
+import Background from "@/app/_components/Layout/Background";
 import Providers from "@/atoms/provider";
 import GoogleAnalytics from "@/app/_components/GoogleAnalytics/GoogleAnalytics";
 
